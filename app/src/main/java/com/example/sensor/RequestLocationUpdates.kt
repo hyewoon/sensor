@@ -35,7 +35,7 @@ class RequestLocationUpdates : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
-        RequestPermissionsUtil(this).requestLocation()
+       // RequestPermissionsUtil(this).requestLocation()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -49,16 +49,13 @@ class RequestLocationUpdates : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-         requestLocationUpdates()
+        // requestLocationUpdates()
     }
     override fun onPause() {
         super.onPause()
-        stopLocationUpdates()
+
     }
 
-    private fun stopLocationUpdates() {
-        fusedLocationClient.removeLocationUpdates(locationCallback)
-    }
 
     private fun requestLocationPermission() {
         if (ContextCompat.checkSelfPermission(
@@ -100,7 +97,7 @@ class RequestLocationUpdates : AppCompatActivity() {
             Looper.getMainLooper() // Looper can be provided for custom threading
         )
     }
-
+    //위치정보 update받는 부분
     private val locationCallback = object : LocationCallback() {
         override fun onLocationResult(locationResult: LocationResult) {
             //lcoation = 현재 위치
